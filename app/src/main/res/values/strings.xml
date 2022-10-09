@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">CineApp</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">Inicio</string>
+    <string name="title_profile">Perfil</string>
+    <string name="title_notifications">Notificaciones</string>
+
+
+    <string name="title_description_profile">Datos del usuario</string>
+    <string name="user_name">Nombre de usuario</string>
+    <string name="reviews">Reseñas</string>
+    <string name="images_upload_by_user">Lista de imagenes</string>
 </resources>

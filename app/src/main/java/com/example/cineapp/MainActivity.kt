@@ -11,6 +11,7 @@ import com.example.cineapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    // Binding
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,5 +32,8 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        // Hide action Bar.
+        if (supportActionBar != null)
+            supportActionBar?.hide()
     }
 }

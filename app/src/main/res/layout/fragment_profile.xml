@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.profile.ProfileFragment">
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ll_content_profile"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:context=".ui.profile.ProfileFragment">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_background_profile"
@@ -27,55 +22,131 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/shapeableImageView"
+            android:id="@+id/siv_profile"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/ic_photo_account_default"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/iv_background_profile"
             app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/Circle" />
+            app:shapeAppearanceOverlay="@style/Circle"
+            app:strokeColor="@color/white"
+            app:strokeWidth="2dp" />
+
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/mtv_title_description_profile"
+            android:id="@+id/mtv_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="sans-serif"
-            android:paddingStart="20dp"
-            android:paddingEnd="0dp"
-            android:text="@string/title_description_profile"
-            android:textAlignment="textStart"
-            android:textSize="@dimen/title"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/shapeableImageView" />
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="16dp"
+            android:gravity="center"
+            android:text="@string/user_name"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/description"
+            app:layout_constraintEnd_toEndOf="@+id/siv_profile"
+            app:layout_constraintStart_toStartOf="@+id/siv_profile"
+            app:layout_constraintTop_toBottomOf="@+id/siv_profile" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/mcv_content_description_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mtv_title_description_profile">
+            app:layout_constraintTop_toBottomOf="@+id/iv_background_profile">
 
-            <com.google.android.material.textview.MaterialTextView
+            <!--            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginVertical="16dp"
-                android:gravity="center"
-                android:text="@string/user_name"
-                android:textSize="@dimen/description" />
+                android:layout_height="match_parent">
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/materialTextView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="16dp"
+                    android:layout_marginStart="16dp"
+                    android:gravity="center"
+                    android:text="@string/total_reviews"
+                    android:textSize="@dimen/description"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="1dp"
+                    android:layout_height="20dp"
+                    android:background="@android:color/darker_gray"
+                    app:layout_constraintBottom_toBottomOf="@+id/materialTextView2"
+                    app:layout_constraintEnd_toStartOf="@+id/materialTextView3"
+                    app:layout_constraintStart_toEndOf="@+id/materialTextView2"
+                    app:layout_constraintTop_toTopOf="@+id/materialTextView2" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/materialTextView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:gravity="center"
+                    android:text="@string/total_images"
+                    android:textSize="@dimen/description"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/mtv_total_reviews"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="16dp"
+                    android:gravity="center"
+                    android:text="@string/total"
+                    android:textColor="@color/cream"
+                    android:textSize="@dimen/description"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/materialTextView2"
+                    app:layout_constraintStart_toStartOf="@+id/materialTextView2"
+                    app:layout_constraintTop_toBottomOf="@+id/materialTextView2" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="20dp"
+                    android:background="@android:color/darker_gray"
+                    app:layout_constraintBottom_toBottomOf="@+id/mtv_total_reviews"
+                    app:layout_constraintEnd_toEndOf="@+id/view"
+                    app:layout_constraintStart_toStartOf="@+id/view"
+                    app:layout_constraintTop_toTopOf="@+id/mtv_total_reviews" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/materialTextView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="16dp"
+                    android:gravity="center"
+                    android:text="@string/total"
+                    android:textColor="@color/cream"
+                    android:textSize="@dimen/description"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/materialTextView3"
+                    app:layout_constraintStart_toStartOf="@+id/materialTextView3"
+                    app:layout_constraintTop_toBottomOf="@+id/materialTextView3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
         </com.google.android.material.card.MaterialCardView>
 
@@ -97,28 +168,41 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mcv_content_description_profile" />
 
-        <ScrollView
-            android:id="@+id/sv_reviews"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mcv_show_all_reviews"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
+            android:clickable="true"
+            android:focusable="true"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mtv_title_reviews">
 
-            <!--  TODO: Create custom item of the reviews of the profile...  -->
 
-        </ScrollView>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/mtv_show_all_reviews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="16dp"
+                android:drawableEnd="@drawable/ic_right_arrow"
+                android:text="@string/show_all_reviews"
+                android:textAlignment="center"
+                android:textSize="@dimen/description" />
+
+
+        </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/mtv_title_images"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:fontFamily="sans-serif"
             android:paddingStart="20dp"
@@ -129,10 +213,37 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sv_reviews" />
+            app:layout_constraintTop_toBottomOf="@+id/mcv_show_all_reviews" />
 
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mcv_show_all_images"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mtv_title_images">
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/mtv_show_all_images"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="16dp"
+                android:drawableEnd="@drawable/ic_right_arrow"
+                android:text="@string/show_all_images"
+                android:textAlignment="center"
+                android:textSize="@dimen/description" />
+
+
+        </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
